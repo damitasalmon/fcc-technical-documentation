@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Technical Documentation Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+
+<div class="container">
+  <div class="sidebar-nav">
+    <nav id="navbar"> <img id="pug" src="https://camo.githubusercontent.com/a43de8ca816e78b1c2666f7696f449b2eeddbeca/68747470733a2f2f63646e2e7261776769742e636f6d2f7075676a732f7075672d6c6f676f2f656563343336636565386664396431373236643738333963626539396431663639343639326330632f5356472f7075672d66696e616c2d6c6f676f2d5f2d636f6c6f75722d3132382e737667" alt="pug.js logo"/>
+      <header>Pugpile of Contents</header><a class="nav-link" href="#Let's_Get_You_Started">Let's Get You Started</a><a class="nav-link" href="#Lemme_Write_Some_Markup">Lemme Write Some Markup</a><a class="nav-link" href="#A_Litter_of_Variables">A Litter of Variables</a><a class="nav-link" href="#The_Ultimate_Mixin">The Ultimate Mixin</a><a class="nav-link" href="#Shimmy_up_a_Template">Shimmy up a Template</a><a class="nav-link" href="#Ayo,_Mr._Block!">Ayo, Mr. Block!</a><a class="nav-link" href="#Reuse_some_Partials">Reuse some Partials</a>
+      <select>Pugpile of Contents
+        <option value="" selected="selected">Select</option>
+        <option value="#Let's_Get_You_Started">Let's Get You Started</option>
+        <option value="#Lemme_Write_Some_Markup">Lemme Write Some Markup</option>
+        <option value="#A_Litter_of_Variables">A Litter of Variables</option>
+        <option value="#The_Ultimate_Mixin">The Ultimate Mixin</option>
+        <option value="#Shimmy_up_a_Template">Shimmy up a Template</option>
+        <option value="#Ayo,_Mr._Block!">Ayo, Mr. Block!</option>
+        <option value="#Reuse_some_Partials">Reuse some Partials</option>
+      </select>
+    </nav>
+  </div>
+  <header id="first">
+    <h1>Learn Pug.js with Pugs</h1>
+    <p class="byline">&gt; a tutorial by <a href="https://codepen.io/mimoduo/" rel="author">Bryan Stoner</a></p>
+  </header>
+  <main id="main-doc">
+    <section>
+      <header>Now Entering Pugspace</header>
+      <article><img src="https://68.media.tumblr.com/b1ec1fb366c7ed9b6afb679b92a263f3/tumblr_o1q8fenuCy1smwcgco1_400.gif" alt="broccoli entranced pug"/>
+        <p><em>You've entered a world unlike your own.</em> A world where pugs roam free and HTML can be written like the snip snappy sharp human you are. That extremely parallel world, so close to our own, is called <strong>pug.js</strong> (formally known as jade). Let's dig in to this new world and go over the basic features that formulate such a wonderful place.</p>
+      </article>
+    </section>
+    <section class="main-section" id="Let's_Get_You_Started">
+      <header>Let's Get You Started</header>
+      <article>
+        <p>The best place to prototype pug is none other than <strong>Codepen</strong>! <em>Create a new little play pen</em> for your pug to bounce around in and then change the HTML preprocessor to <code>jade</code>:</p><img src="http://image.prntscr.com/image/6e3b2f3b67444c82a1d95bb16471036f.png" alt="pug on codepen setup"/>
+      </article>
+    </section>
+    <section class="main-section" id="Lemme_Write_Some_Markup">
+      <header>Lemme Write Some Markup</header>
+      <article><img src="https://s-media-cache-ak0.pinimg.com/originals/ff/94/81/ff94819858ce426eb6490162e73abcbf.gif" alt="bossy pug"/>
+        <p>If you're new to pug, don't be scared! It's pretty quick to pick up and incredibly flexible. We'll start with a simple topic component in HTML.</p>
+        <pre><code>&lt;div class="topic-component"&gt;
+&lt;h4&gt;Title&lt;/h4&gt;
+&lt;p&gt;Description&lt;/p&gt;
+&lt;a href="#"&gt;Link&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+        <p>Nothing to see here, we all know this markup from a mile away (Did you know pugs can see in x-ray vision?). What if we took this markup and pugified it:</p>
+        <pre><code>.topic-component
+h4 Title
+p Description
+a(href="#") Link
+	</code></pre>
+        <p>Now we're cooking! We stripped out all this HTML stuff and we're left some pretty pug looking stuff. Let's break down what went on here:</p>
+        <p class="strong">Pug takes out all those closing brackets in favor of indentation:</p>
+        <pre><code>&lt;div class="topic-component"&gt;
+&lt;h4&gt;Title
+&lt;p&gt;Description
+&lt;a href=""&gt;Link
+</code></pre>
+        <p class="strong">You don't even need those pesky brackets at all in pug:</p>
+        <pre><code>div class="topic-component"
+	h4 Title
+	p Description
+	a href="#"
+</code></pre>
+        <p class="strong">We used dots in our css for a class, yea? Pug too!:</p>
+        <pre><code>div.topic-component
+	h4 Title
+	p Description
+	a href="#"
+</code></pre>
+        <p class="strong">Shoot, who needs <em>div</em> anyway. Make sure to snuggly wrap those attributes like <em>href</em> up too:
+          <pre><code>.topic-component
+	h4 Title
+	p Description
+	a(href="")
+</code></pre>
+        </p>
+        <p>With that we have a complete pug component, full of all the syntactical warmness you could ever want in pug. The result here will be the exact same as our original HTML component. It's pretty darn quick to write too.</p>
+      </article>
+    </section>
+    <section class="main-section" id="A_Litter_of_Variables">
+      <header>A Litter of Variables</header>
+      <article><img src="https://media.giphy.com/media/hOcAbpGDdkRws/giphy.gif" alt="not enough hands for baby pugs"/>
+        <p>You're all set with learning pug's condensed syntax, now let's get into some more complex features. <b>Variables</b> are handy little buggers which <em>let you store values and reuse them later on.</em> This is really useful for stuff like your page title. Let's make a little litter of variables for our pug named Fluffy:</p>
+        <pre><code>- var pageTitle = "Fluffy"
+- var pageCaption = "A cute pug for you"
+</code></pre>
+        <p>In pug we use <code> - var </code> to declare a variable, and <code>=</code> to assign a value. To reference those variables, we can use <b>interpolation</b> - <em>a way to tell pug that the following text is actually a variable </em>(Shoot, why not call it the pugstache). This will take our strings "Fluffy" and "A cute pug for you" and place them inside our markup:</p>
+        <pre><code>h1  
+p 
+</code></pre>
+      </article>
+    </section>
+    <section class="main-section" id="The_Ultimate_Mixin">
+      <header>The Ultimate Mixin</header>
+      <article><img src="https://media.giphy.com/media/l3jy4004FH8Ws/giphy.gif" alt="dj pug mixing"/>
+        <p>Another pug powerhouse feature is the mixin. If you're familiar with SASS, the same concept applies here. A <b>mixin</b> <em>takes in a set of arguments and then runs through some markup.</em> How about we make an image mixin for Fluffy:</p>
+        <pre><code>mixin image(name, caption)
+	figure
+		img(src=name + ".jpg")
+		figcaption= caption
+		</code></pre>
+        <p>We used the keyword <sode>mixin</code> to create a mixin named <code>image</code> that passes in a comma separated list of 2 arguments, <code>name</code> and <code>caption</code>. We also didn't use interpolation here when using the our variables. How come? The best way to use interpolation is when you want to place plain text before or after your variables. However, you can also treat passing in a variable like you would in javascript - an element = your variable + something else. This is known as <b>concatenation.</b></p>
+        <p>To use our new mixin, all we have to do is use <code>+</code> then our mixin name, <code>image</code>:</p>
+        <pre><code>+image("fluffy", "Fluffy with his cute friend")
+</code></pre>
+      </article>
+    </section>
+    <section class="main-section" id="Shimmy_up_a_Template">
+      <header>Shimmy up a Template</header>
+      <article><img src="https://media.giphy.com/media/1QLpR7MePnleg/giphy.gif" alt="stripper pug getting paid"/>
+        <p>I bet you've written a template many many many times as a developer, then copied that template for each page. Well let's embark on a new journey, <b>outside of codepen</b>, in the wonders of <b>template inheritance.</b> This feature allows you to create a page by calling a template then injecting content into that template. Forget about copying the template over and over again!</p>
+        <p>Let's create a base template, named after our fantastic friend, called <code>fluffy.pug</code>:</p>
+        <pre><code>//- fluffy.pug
+html
+	head
+		//- Fluffy's head
+	body
+		block content
+</code></pre>
+        <p>I snuck a little something into fluffy here called a block. We'll learn more about blocks soon! Let's start by making a <code>coat.pug</code> page to show off Fluffy's nice coat:	</p>
+        <pre><code>//- coat.pug
+//- Extend a template given a file path to that template
+extend fluffy.pug
+</code></pre>
+        <p>All that markup from our <code>fluffy.pug</code> template is now copied into <code>coat.pug.</code> You don't have to rewrite the template for every page, just extend it, using the path to our template, with pug. Sweet, right!</p>
+      </article>
+    </section>
+    <section class="main-section" id="Ayo,_Mr._Block!">
+      <header>Ayo, Mr. Block!</header>
+      <article>
+        <p>Remember that block we had on <code>fluffy.pug</code>? A <b>block</b> is a <em>bank we use to store content into later on.</em> Let's use that block to add in some content to <code>coat.pug</code>:</p>
+        <pre><code>//- coat.pug
+extend fluffy.pug
+
+block content
+	h2 Fluffy's Sexy Coat
+	p His coat brings all the little pugs to the yard. Dazzling, radiant, you name it, Fluffys' got it.
+	a(href="okcupid.com/fluffy") Check Fluffy out on Okcupid ;)
+	</code></pre>
+        <p>The same place we added that block in <code>fluffy.pug</code> will be the exact place it shows up in <code>coat.pug</code> - right inside the body. It's almost time to run with the pugs!</p>
+      </article>
+    </section>
+    <section class="main-section" id="Reuse_some_Partials">
+      <header>Reuse some Partials</header>
+      <article><img src="https://media.giphy.com/media/FbyqoWvEHmV9K/giphy-downsized-large.gif" alt="relaxed pug"/>
+        <p>You've gone pretty deep in pug space and you've almost explored all the basics! One last feature we'll cover here is called include. An <b>include</b> is a <em>way to reuse components.</em> That blurb we used earlier is a prime use case for include. What if we wanted to show off a blurb of Fluffy's sexy coat on more than one page? First we gotta make that little blurb has its own file called <code>coat-blurb.pug</code>:</p>
+        <pre><code>//- coat-blurb.pug
+h2 Fluffy's Sexy Coat
+p His coat brings all the little pugs to the yard. Dazzling, radiant, you name it, Fluffys' got it.
+a(href="okcupid.com/fluffy") Check Fluffy out on Okcupid ;)
+		</code></pre>
+        <p>Back in our <code>coat.pug</code> let's strip out that blurb and add in an <code>include</code>:</p>
+        <pre><code>//- coat.pug
+extend fluffy.pug
+
+block content
+	//- Include a partial given the file path to that partial
+	include coat-blurb.pug
+	</code></pre>
+        <p>Lookin pretty clean, eh! We're still extending <code>fluffy.pug</code> and we're still passing in some content to our block. The only difference here is we're including our coat blurb rather than writing it again by hand. I'm sure Fluffy would want all his admirers to see that coat blurb on his <code>bulky-legs.pug</code> page too!</p>
+        <article>
+          <header>Pug-ccess!</header>
+          <hr/><img src="https://media.giphy.com/media/vHVOwKO2QES7S/giphy.gif" alt="pug success trick"/>
+          <p>Over the course of this post you've learned quite a lot! You've learned how to:</p>
+          <ul class="back-up">
+            <li><a href="#Let's_Get_You_Started">write pug markup,</a></li>
+            <li><a href="#A_Litter_of_Variables"> use variables,</a></li>
+            <li><a href="#The_Ultimate_Mixin"> create mixins,</a></li>
+            <li><a href="#Shimmy_up_a_Template"> extend templates,</a></li>
+            <li><a href="#undefined"> pass in content,</a></li>
+            <li><a href="#Reuse_some_Partials"> and use partials.</a></li>
+          </ul>
+          <p>There's much more to learn in the world of pug and with that statement I leave you with three resources. One, your first and foremost go to resource for everything pug, the <a href="https://pugjs.org/api/getting-started.html">pug website</a>. Two, a <a href="https://github.com/mimoduo/mimogear/tree/master/src/pug">&nbsp;handy little pug boilerplate</a>&nbsp;for ya that's part of my (read: Bryan's) static site generator called <a href="https://mimoduo.github.io/mimogear/">Mimogear</a>&nbsp;Three, a <a href="https://codepen.io/mimoduo/post/pug-js-cheat-sheet">rockin pug cheat sheet</a>. Use them wisely and fulfill your destiny as pug master!<a href="https://www.etsy.com/listing/65516618/pug-gift-pug-art-pug-star-wars-art-pug" target="_blank"><img class="last" src="https://img.etsystatic.com/il/2a4b84/206605286/il_570xN.206605286.jpg?" alt="pug star wars art"/></a></p>
+        </article>
+      </article>
+    </section>
+  </main>
+  <footer>
+    <q><em><strong>I wish you the best as you begin to learn pug, my fellow Codepen friends!</strong></em></q><span>&nbsp;- All the documentation in this page is taken from <a href="https://codepen.io/mimoduo/post/learn-pug-js-with-pugs" target="_blank">Bryan Stoner</a>.
+      <hr/></span>
+  </footer>
+</div>
+<!-- partial -->
+  <script src='https://gitcdn.link/repo/freeCodeCamp/testable-projects-fcc/master/build/bundle.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.compatibility.min.js'></script>
+<script  src="./script.js"></script>
+
+</body>
+</html>
